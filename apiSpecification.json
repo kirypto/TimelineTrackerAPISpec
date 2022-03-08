@@ -2,10 +2,10 @@
   "openapi" : "3.0.0",
   "servers" : [ {
     "description" : "Local Server",
-    "url" : "http://127.0.0.1:5000"
+    "url" : "https://172.0.0.1:5000"
   } ],
   "info" : {
-    "version" : "0.3.0",
+    "version" : "0.4.0",
     "title" : "Timeline Tracker API",
     "license" : {
       "url" : "https://github.com/kirypto/TimelineTracker/blob/master/LICENSE.txt",
@@ -17,7 +17,45 @@
     }
   },
   "paths" : {
-    "/api/location" : {
+    "/api/world" : {
+      "post" : {
+        "summary" : "Creates a new World",
+        "description" : "Creates a new World with a generated id and returns it.\n",
+        "tags" : [ "Worlds" ],
+        "requestBody" : {
+          "required" : true,
+          "description" : "*Notes*\n- *When POSTing a World, providing an id is not required as it will\nbe generated. If one is provided it will be ignored.*\n",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/NewWorld"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Successfully created",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ExistingWorld"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/world/{worldId}/location" : {
+      "parameters" : [ {
+        "in" : "path",
+        "name" : "worldId",
+        "schema" : {
+          "$ref" : "#/components/schemas/WorldId"
+        },
+        "required" : true
+      } ],
       "post" : {
         "summary" : "Creates a new Location",
         "description" : "Creates a new Location with a generated id and returns it.\n",
@@ -47,7 +85,144 @@
         }
       }
     },
-    "/api/locations" : {
+    "/api/worlds" : {
+      "get" : {
+        "summary" : "Retrieves all Worlds",
+        "tags" : [ "Worlds" ],
+        "parameters" : [ {
+          "in" : "query",
+          "name" : "nameIs",
+          "description" : "Filters to only include Worlds which have a name equal to the specified value",
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "The Great Pyramid"
+        }, {
+          "in" : "query",
+          "name" : "nameHas",
+          "description" : "Filters to only include Worlds which have a name that contains the specified value",
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "Pyramid"
+        }, {
+          "in" : "query",
+          "name" : "taggedAll",
+          "description" : "Comma separated list of tags. Filters to only include locations which have all of the specified tags.",
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "important,unimportant"
+        }, {
+          "in" : "query",
+          "name" : "taggedAny",
+          "description" : "Comma separated list of tags. Filters to only include locations which have at least one of the specified tags.",
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "important,unimportant"
+        }, {
+          "in" : "query",
+          "name" : "taggedOnly",
+          "description" : "Comma separated list of tags. Filters to only include locations which are only tagged with the specified tags _(or a subset of them)_.",
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "important,unimportant"
+        }, {
+          "in" : "query",
+          "name" : "taggedNone",
+          "description" : "Comma separated list of tags. Filters to only include locations which have none of the of the specified tags.",
+          "schema" : {
+            "type" : "string"
+          },
+          "example" : "important,unimportant"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successfully retrieved",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/WorldIds"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/world/{worldId}" : {
+      "parameters" : [ {
+        "in" : "path",
+        "name" : "worldId",
+        "schema" : {
+          "$ref" : "#/components/schemas/WorldId"
+        },
+        "required" : true
+      } ],
+      "get" : {
+        "summary" : "Retrieves the specified World",
+        "tags" : [ "Worlds" ],
+        "responses" : {
+          "200" : {
+            "description" : "Successfully retrieved",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ExistingWorld"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "summary" : "Deletes the specified World",
+        "tags" : [ "Worlds" ],
+        "responses" : {
+          "204" : {
+            "description" : "Successfully removed"
+          }
+        }
+      },
+      "patch" : {
+        "summary" : "Modifies the specified World",
+        "tags" : [ "Worlds" ],
+        "requestBody" : {
+          "required" : true,
+          "description" : "*Notes*\n- *Modifying the id is not permitted.*\n",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/PatchRequest"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Successfully modified",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ExistingWorld"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/world/{worldId}/locations" : {
+      "parameters" : [ {
+        "in" : "path",
+        "name" : "worldId",
+        "schema" : {
+          "$ref" : "#/components/schemas/WorldId"
+        },
+        "required" : true
+      } ],
       "get" : {
         "summary" : "Retrieves all Locations",
         "tags" : [ "Locations" ],
@@ -130,8 +305,15 @@
         }
       }
     },
-    "/api/location/{locationId}" : {
+    "/api/world/{worldId}/location/{locationId}" : {
       "parameters" : [ {
+        "in" : "path",
+        "name" : "worldId",
+        "schema" : {
+          "$ref" : "#/components/schemas/WorldId"
+        },
+        "required" : true
+      }, {
         "in" : "path",
         "name" : "locationId",
         "schema" : {
@@ -192,8 +374,15 @@
         }
       }
     },
-    "/api/location/{locationId}/timeline" : {
+    "/api/world/{worldId}/location/{locationId}/timeline" : {
       "parameters" : [ {
+        "in" : "path",
+        "name" : "worldId",
+        "schema" : {
+          "$ref" : "#/components/schemas/WorldId"
+        },
+        "required" : true
+      }, {
         "in" : "path",
         "name" : "locationId",
         "schema" : {
@@ -251,7 +440,15 @@
         }
       }
     },
-    "/api/traveler" : {
+    "/api/world/{worldId}/traveler" : {
+      "parameters" : [ {
+        "in" : "path",
+        "name" : "worldId",
+        "schema" : {
+          "$ref" : "#/components/schemas/WorldId"
+        },
+        "required" : true
+      } ],
       "post" : {
         "summary" : "Creates a new Traveler",
         "description" : "Creates a new Traveler with a generated id and returns it.\n",
@@ -281,7 +478,15 @@
         }
       }
     },
-    "/api/travelers" : {
+    "/api/world/{worldId}/travelers" : {
+      "parameters" : [ {
+        "in" : "path",
+        "name" : "worldId",
+        "schema" : {
+          "$ref" : "#/components/schemas/WorldId"
+        },
+        "required" : true
+      } ],
       "get" : {
         "summary" : "Retrieves all Travelers",
         "tags" : [ "Travelers" ],
@@ -364,8 +569,15 @@
         }
       }
     },
-    "/api/traveler/{travelerId}" : {
+    "/api/world/{worldId}/traveler/{travelerId}" : {
       "parameters" : [ {
+        "in" : "path",
+        "name" : "worldId",
+        "schema" : {
+          "$ref" : "#/components/schemas/WorldId"
+        },
+        "required" : true
+      }, {
         "in" : "path",
         "name" : "travelerId",
         "schema" : {
@@ -426,8 +638,15 @@
         }
       }
     },
-    "/api/traveler/{travelerId}/journey" : {
+    "/api/world/{worldId}/traveler/{travelerId}/journey" : {
       "parameters" : [ {
+        "in" : "path",
+        "name" : "worldId",
+        "schema" : {
+          "$ref" : "#/components/schemas/WorldId"
+        },
+        "required" : true
+      }, {
         "in" : "path",
         "name" : "travelerId",
         "schema" : {
@@ -463,8 +682,15 @@
         }
       }
     },
-    "/api/traveler/{travelerId}/timeline" : {
+    "/api/world/{worldId}/traveler/{travelerId}/timeline" : {
       "parameters" : [ {
+        "in" : "path",
+        "name" : "worldId",
+        "schema" : {
+          "$ref" : "#/components/schemas/WorldId"
+        },
+        "required" : true
+      }, {
         "in" : "path",
         "name" : "travelerId",
         "schema" : {
@@ -522,7 +748,15 @@
         }
       }
     },
-    "/api/event" : {
+    "/api/world/{worldId}/event" : {
+      "parameters" : [ {
+        "in" : "path",
+        "name" : "worldId",
+        "schema" : {
+          "$ref" : "#/components/schemas/WorldId"
+        },
+        "required" : true
+      } ],
       "post" : {
         "summary" : "Creates a new Event",
         "description" : "Creates a new Event with a generated id and returns it.\n",
@@ -552,7 +786,15 @@
         }
       }
     },
-    "/api/events" : {
+    "/api/world/{worldId}/events" : {
+      "parameters" : [ {
+        "in" : "path",
+        "name" : "worldId",
+        "schema" : {
+          "$ref" : "#/components/schemas/WorldId"
+        },
+        "required" : true
+      } ],
       "get" : {
         "summary" : "Retrieves all events",
         "tags" : [ "Events" ],
@@ -627,7 +869,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/TravelerIds"
+                  "$ref" : "#/components/schemas/EventIds"
                 }
               }
             }
@@ -635,8 +877,15 @@
         }
       }
     },
-    "/api/event/{eventId}" : {
+    "/api/world/{worldId}/event/{eventId}" : {
       "parameters" : [ {
+        "in" : "path",
+        "name" : "worldId",
+        "schema" : {
+          "$ref" : "#/components/schemas/WorldId"
+        },
+        "required" : true
+      }, {
         "in" : "path",
         "name" : "eventId",
         "schema" : {
@@ -700,7 +949,41 @@
   },
   "components" : {
     "schemas" : {
-      "BaseLocation" : {
+      "NewWorld" : {
+        "description" : "A world in which locations exist, travelers visit, and events occur.\n",
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type" : "string",
+            "example" : "The Milky Way"
+          },
+          "description" : {
+            "type" : "string",
+            "example" : "The Milky Way is the galaxy that includes our Solar System, with the name describing the galaxy's appearance from Earth.\n"
+          },
+          "tags" : {
+            "$ref" : "#/components/schemas/Tags"
+          },
+          "metadata" : {
+            "$ref" : "#/components/schemas/Metadata"
+          }
+        },
+        "required" : [ "name", "span" ]
+      },
+      "ExistingWorld" : {
+        "allOf" : [ {
+          "type" : "object",
+          "properties" : {
+            "id" : {
+              "$ref" : "#/components/schemas/WorldId"
+            }
+          }
+        }, {
+          "$ref" : "#/components/schemas/NewWorld"
+        } ],
+        "required" : [ "id" ]
+      },
+      "NewLocation" : {
         "description" : "A place of significance that travelers can visit and events can occur at which cover a multi-dimensional area.\nMost locations will consist of an area that spans 4 of the 5 dimensions;\n- Ranges for dimensions 1-3 representing the physical area.\n- A range for dimension 4 representing the time range from when it was constructed to when it will be no more.\n- A instantaneous range for dimension 5 _(lower and higher values are the same)_.\n",
         "type" : "object",
         "properties" : {
@@ -724,11 +1007,6 @@
         },
         "required" : [ "name", "span" ]
       },
-      "NewLocation" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/BaseLocation"
-        } ]
-      },
       "ExistingLocation" : {
         "allOf" : [ {
           "type" : "object",
@@ -738,21 +1016,21 @@
             }
           }
         }, {
-          "$ref" : "#/components/schemas/BaseLocation"
+          "$ref" : "#/components/schemas/NewLocation"
         } ],
         "required" : [ "id" ]
       },
-      "BaseTraveler" : {
+      "NewTraveler" : {
         "description" : "A person or thing which has a journey consisting of the positions it visits. A traveler can interact with other travelers and locations via events.",
         "type" : "object",
         "properties" : {
           "name" : {
             "type" : "string",
-            "example" : "James T. Kirk"
+            "example" : "Gaius Julius Caesar"
           },
           "description" : {
             "type" : "string",
-            "example" : "He is captain of the NCC-1701 Starship Enterprise, and leads an ongoing mission to explore strange new worlds, to seek out new life and new civilizations, and to boldly go where no one has gone before."
+            "example" : "Gaius Julius Caesar was a Roman general and statesman."
           },
           "journey" : {
             "$ref" : "#/components/schemas/Journey"
@@ -766,11 +1044,6 @@
         },
         "required" : [ "name", "journey" ]
       },
-      "NewTraveler" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/BaseTraveler"
-        } ]
-      },
       "ExistingTraveler" : {
         "allOf" : [ {
           "type" : "object",
@@ -780,11 +1053,11 @@
             }
           }
         }, {
-          "$ref" : "#/components/schemas/BaseTraveler"
+          "$ref" : "#/components/schemas/NewTraveler"
         } ],
         "required" : [ "id", "journey" ]
       },
-      "BaseEvent" : {
+      "NewEvent" : {
         "description" : "An interaction, connection, or other thing which happens across a dimensional range and optionally includes travelers and/or locations. Most events have at least one traveler, indicating that the event affected or included those travelers. Events without any travelers are supported but must still have a position or location _(for example a natural disaster in a remote area)_.\n- An event can have zero or more locations. The locations' spans must intersect the event.\n- An event can have zero or more travelers. The travelers' journeys must intersect the event.\n",
         "type" : "object",
         "properties" : {
@@ -794,7 +1067,7 @@
           },
           "description" : {
             "type" : "string",
-            "example" : "Attacked by the Briggand Band, the civilians ran in despair until the courageous Band Of Defenders came to the rescue."
+            "example" : "Attacked by the Brigand Band, the civilians ran in despair until the courageous Band Of Defenders came to the rescue."
           },
           "span" : {
             "$ref" : "#/components/schemas/PositionalRange"
@@ -814,11 +1087,6 @@
         },
         "required" : [ "name", "span" ]
       },
-      "NewEvent" : {
-        "allOf" : [ {
-          "$ref" : "#/components/schemas/BaseEvent"
-        } ]
-      },
       "ExistingEvent" : {
         "allOf" : [ {
           "type" : "object",
@@ -828,9 +1096,15 @@
             }
           }
         }, {
-          "$ref" : "#/components/schemas/BaseEvent"
+          "$ref" : "#/components/schemas/NewEvent"
         } ],
         "required" : [ "id" ]
+      },
+      "WorldId" : {
+        "description" : "A unique identifier for a World",
+        "type" : "string",
+        "format" : "prefixed-uuid",
+        "example" : "world-abad1dea-0000-4000-8000-000000000000"
       },
       "LocationId" : {
         "description" : "A unique identifier for a Location",
@@ -850,6 +1124,12 @@
         "format" : "prefixed-uuid",
         "example" : "event-abad1dea-0000-4000-8000-000000000000"
       },
+      "WorldIds" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/WorldId"
+        }
+      },
       "LocationIds" : {
         "type" : "array",
         "items" : {
@@ -860,6 +1140,12 @@
         "type" : "array",
         "items" : {
           "$ref" : "#/components/schemas/TravelerId"
+        }
+      },
+      "EventIds" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/EventId"
         }
       },
       "TravelerTimeline" : {
@@ -984,7 +1270,7 @@
       },
       "Metadata" : {
         "type" : "object",
-        "description" : "Generic metadata key-value map consisting of string data. \n- Metadata keys must be contain only alphanumeric, underscore, and dash characters.\n- Metadata values can be any string.\n",
+        "description" : "Generic metadata key-value map consisting of string data.\n- Metadata keys must be contain only alphanumeric, underscore, and dash characters.\n- Metadata values can be any string.\n",
         "example" : {
           "key1" : "Value A",
           "key2" : "Value B"
@@ -1041,16 +1327,22 @@
         "example" : {
           "op" : "add",
           "path" : "/name",
-          "value" : "James T. Kirk"
+          "value" : "Gaius Julius Caesar"
         }
       }
     }
   },
   "tags" : [ {
+    "name" : "Worlds",
+    "description" : "Requests regarding World resources."
+  }, {
     "name" : "Locations",
     "description" : "Requests regarding Location resources."
   }, {
     "name" : "Travelers",
     "description" : "Requests regarding Travelers resources."
+  }, {
+    "name" : "Events",
+    "description" : "Requests regarding Events resources."
   } ]
 }
