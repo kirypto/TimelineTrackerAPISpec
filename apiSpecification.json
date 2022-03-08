@@ -964,8 +964,8 @@
           "tags" : {
             "$ref" : "#/components/schemas/Tags"
           },
-          "metadata" : {
-            "$ref" : "#/components/schemas/Metadata"
+          "attributes" : {
+            "$ref" : "#/components/schemas/Attributes"
           }
         },
         "required" : [ "name", "span" ]
@@ -1001,8 +1001,8 @@
           "tags" : {
             "$ref" : "#/components/schemas/Tags"
           },
-          "metadata" : {
-            "$ref" : "#/components/schemas/Metadata"
+          "attributes" : {
+            "$ref" : "#/components/schemas/Attributes"
           }
         },
         "required" : [ "name", "span" ]
@@ -1038,8 +1038,8 @@
           "tags" : {
             "$ref" : "#/components/schemas/Tags"
           },
-          "metadata" : {
-            "$ref" : "#/components/schemas/Metadata"
+          "attributes" : {
+            "$ref" : "#/components/schemas/Attributes"
           }
         },
         "required" : [ "name", "journey" ]
@@ -1081,8 +1081,8 @@
           "tags" : {
             "$ref" : "#/components/schemas/Tags"
           },
-          "metadata" : {
-            "$ref" : "#/components/schemas/Metadata"
+          "attributes" : {
+            "$ref" : "#/components/schemas/Attributes"
           }
         },
         "required" : [ "name", "span" ]
@@ -1268,9 +1268,9 @@
         },
         "required" : [ "position", "movement_type" ]
       },
-      "Metadata" : {
+      "Attributes" : {
         "type" : "object",
-        "description" : "Generic metadata key-value map consisting of string data.\n- Metadata keys must be contain only alphanumeric, underscore, and dash characters.\n- Metadata values can be any string.\n",
+        "description" : "Generic attribute key-value map consisting of string data.\n- Attributes keys must be contain only alphanumeric, underscore, and dash characters.\n- Attributes values can be any string.\n",
         "example" : {
           "key1" : "Value A",
           "key2" : "Value B"
