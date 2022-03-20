@@ -13,7 +13,8 @@
     },
     "contact" : {
       "url" : "https://github.com/kirypto/TimelineTracker/issues",
-      "name" : "kirypto"
+      "name" : "kirypto",
+      "email" : "doNotUse@notARealEmail.com"
     }
   },
   "paths" : {
