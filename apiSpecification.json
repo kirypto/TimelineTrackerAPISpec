@@ -48,44 +48,6 @@
         }
       }
     },
-    "/api/world/{worldId}/location" : {
-      "parameters" : [ {
-        "in" : "path",
-        "name" : "worldId",
-        "schema" : {
-          "$ref" : "#/components/schemas/WorldId"
-        },
-        "required" : true
-      } ],
-      "post" : {
-        "summary" : "Creates a new Location",
-        "description" : "Creates a new Location with a generated id and returns it.\n",
-        "tags" : [ "Locations" ],
-        "requestBody" : {
-          "required" : true,
-          "description" : "*Notes*\n- *When POSTing a Location, providing an id is not required as it will\nbe generated. If one is provided it will be ignored.*\n- *`-Infinity` and `Infinity` can be provided in place of numbers and will be translated to negative and positive infinity respectively.*\n",
-          "content" : {
-            "application/json" : {
-              "schema" : {
-                "$ref" : "#/components/schemas/NewLocation"
-              }
-            }
-          }
-        },
-        "responses" : {
-          "201" : {
-            "description" : "Successfully created",
-            "content" : {
-              "application/json" : {
-                "schema" : {
-                  "$ref" : "#/components/schemas/ExistingLocation"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/worlds" : {
       "get" : {
         "summary" : "Retrieves all Worlds",
@@ -208,6 +170,44 @@
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/ExistingWorld"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/world/{worldId}/location" : {
+      "parameters" : [ {
+        "in" : "path",
+        "name" : "worldId",
+        "schema" : {
+          "$ref" : "#/components/schemas/WorldId"
+        },
+        "required" : true
+      } ],
+      "post" : {
+        "summary" : "Creates a new Location",
+        "description" : "Creates a new Location with a generated id and returns it.\n",
+        "tags" : [ "Locations" ],
+        "requestBody" : {
+          "required" : true,
+          "description" : "*Notes*\n- *When POSTing a Location, providing an id is not required as it will\nbe generated. If one is provided it will be ignored.*\n- *`-Infinity` and `Infinity` can be provided in place of numbers and will be translated to negative and positive infinity respectively.*\n",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/NewLocation"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Successfully created",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ExistingLocation"
                 }
               }
             }
