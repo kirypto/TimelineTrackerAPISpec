@@ -75,7 +75,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "important,unimportant"
+          "example" : "important"
         }, {
           "in" : "query",
           "name" : "taggedAny",
@@ -83,7 +83,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "important,unimportant"
+          "example" : "important,world"
         }, {
           "in" : "query",
           "name" : "taggedOnly",
@@ -91,7 +91,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "important,unimportant"
+          "example" : "important"
         }, {
           "in" : "query",
           "name" : "taggedNone",
@@ -99,7 +99,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "important,unimportant"
+          "example" : "unimportant"
         } ],
         "responses" : {
           "200" : {
@@ -250,7 +250,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "important,unimportant"
+          "example" : "important"
         }, {
           "in" : "query",
           "name" : "taggedAny",
@@ -258,7 +258,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "important,unimportant"
+          "example" : "important,location"
         }, {
           "in" : "query",
           "name" : "taggedOnly",
@@ -266,7 +266,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "important,unimportant"
+          "example" : "important"
         }, {
           "in" : "query",
           "name" : "taggedNone",
@@ -274,7 +274,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "important,unimportant"
+          "example" : "unimportant"
         }, {
           "in" : "query",
           "name" : "spanIncludes",
@@ -401,7 +401,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "important,unimportant"
+          "example" : "important"
         }, {
           "in" : "query",
           "name" : "taggedAny",
@@ -409,7 +409,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "important,unimportant"
+          "example" : "important,event"
         }, {
           "in" : "query",
           "name" : "taggedOnly",
@@ -417,7 +417,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "important,unimportant"
+          "example" : "important"
         }, {
           "in" : "query",
           "name" : "taggedNone",
@@ -425,7 +425,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "important,unimportant"
+          "example" : "unimportant"
         } ],
         "responses" : {
           "200" : {
@@ -514,7 +514,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "important,unimportant"
+          "example" : "important"
         }, {
           "in" : "query",
           "name" : "taggedAny",
@@ -522,7 +522,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "important,unimportant"
+          "example" : "important,traveler"
         }, {
           "in" : "query",
           "name" : "taggedOnly",
@@ -530,7 +530,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "important,unimportant"
+          "example" : "important"
         }, {
           "in" : "query",
           "name" : "taggedNone",
@@ -538,7 +538,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "important,unimportant"
+          "example" : "unimportant"
         }, {
           "in" : "query",
           "name" : "journeyIncludes",
@@ -709,7 +709,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "important,unimportant"
+          "example" : "important"
         }, {
           "in" : "query",
           "name" : "taggedAny",
@@ -717,7 +717,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "important,unimportant"
+          "example" : "important,event"
         }, {
           "in" : "query",
           "name" : "taggedOnly",
@@ -725,7 +725,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "important,unimportant"
+          "example" : "important"
         }, {
           "in" : "query",
           "name" : "taggedNone",
@@ -733,7 +733,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "important,unimportant"
+          "example" : "unimportant"
         } ],
         "responses" : {
           "200" : {
@@ -822,7 +822,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "important,unimportant"
+          "example" : "important"
         }, {
           "in" : "query",
           "name" : "taggedAny",
@@ -830,7 +830,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "important,unimportant"
+          "example" : "important,event"
         }, {
           "in" : "query",
           "name" : "taggedOnly",
@@ -838,7 +838,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "important,unimportant"
+          "example" : "important"
         }, {
           "in" : "query",
           "name" : "taggedNone",
@@ -846,7 +846,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "important,unimportant"
+          "example" : "unimportant"
         }, {
           "in" : "query",
           "name" : "spanIncludes",
