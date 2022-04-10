@@ -1237,12 +1237,12 @@
           "low" : {
             "type" : "number",
             "format" : "float",
-            "example" : -5
+            "example" : -5.1
           },
           "high" : {
             "type" : "number",
             "format" : "float",
-            "example" : 15
+            "example" : 15.1
           }
         },
         "required" : [ "low", "high" ]
