@@ -169,7 +169,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ExistingWorld"
+                  "$ref" : "#/components/schemas/ModifiedWorld"
                 }
               }
             }
@@ -367,7 +367,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ExistingLocation"
+                  "$ref" : "#/components/schemas/ModifiedLocation"
                 }
               }
             }
@@ -631,7 +631,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ExistingTraveler"
+                  "$ref" : "#/components/schemas/ModifiedTraveler"
                 }
               }
             }
@@ -939,7 +939,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ExistingEvent"
+                  "$ref" : "#/components/schemas/ModifiedEvent"
                 }
               }
             }
@@ -984,6 +984,19 @@
         } ],
         "required" : [ "id" ]
       },
+      "ModifiedWorld" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ExistingWorld"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "name" : {
+              "type" : "string",
+              "example" : "Modified Name"
+            }
+          }
+        } ]
+      },
       "NewLocation" : {
         "description" : "A place of significance that travelers can visit and events can occur at which cover a multi-dimensional area.\nMost locations will consist of an area that spans 4 of the 5 dimensions;\n- Ranges for dimensions 1-3 representing the physical area.\n- A range for dimension 4 representing the time range from when it was constructed to when it will be no more.\n- A instantaneous range for dimension 5 _(lower and higher values are the same)_.\n",
         "type" : "object",
@@ -1021,6 +1034,19 @@
         } ],
         "required" : [ "id" ]
       },
+      "ModifiedLocation" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ExistingLocation"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "name" : {
+              "type" : "string",
+              "example" : "Modified Name"
+            }
+          }
+        } ]
+      },
       "NewTraveler" : {
         "description" : "A person or thing which has a journey consisting of the positions it visits. A traveler can interact with other travelers and locations via events.",
         "type" : "object",
@@ -1057,6 +1083,19 @@
           "$ref" : "#/components/schemas/NewTraveler"
         } ],
         "required" : [ "id", "journey" ]
+      },
+      "ModifiedTraveler" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ExistingTraveler"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "name" : {
+              "type" : "string",
+              "example" : "Modified Name"
+            }
+          }
+        } ]
       },
       "NewEvent" : {
         "description" : "An interaction, connection, or other thing which happens across a dimensional range and optionally includes travelers and/or locations. Most events have at least one traveler, indicating that the event affected or included those travelers. Events without any travelers are supported but must still have a position or location _(for example a natural disaster in a remote area)_.\n- An event can have zero or more locations. The locations' spans must intersect the event.\n- An event can have zero or more travelers. The travelers' journeys must intersect the event.\n",
@@ -1100,6 +1139,19 @@
           "$ref" : "#/components/schemas/NewEvent"
         } ],
         "required" : [ "id" ]
+      },
+      "ModifiedEvent" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ExistingEvent"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "name" : {
+              "type" : "string",
+              "example" : "Modified Name"
+            }
+          }
+        } ]
       },
       "WorldId" : {
         "description" : "A unique identifier for a World",
@@ -1326,9 +1378,9 @@
           }
         },
         "example" : {
-          "op" : "add",
+          "op" : "replace",
           "path" : "/name",
-          "value" : "Gaius Julius Caesar"
+          "value" : "Modified Name"
         }
       }
     }
