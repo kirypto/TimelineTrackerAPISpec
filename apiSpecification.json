@@ -1057,7 +1057,7 @@
           },
           "description" : {
             "type" : "string",
-            "example" : "Gaius Julius Caesar was a Roman general and statesman."
+            "example" : "Gaius Julius Caesar was a Roman general and statesman.\n"
           },
           "journey" : {
             "$ref" : "#/components/schemas/Journey"
@@ -1107,7 +1107,7 @@
           },
           "description" : {
             "type" : "string",
-            "example" : "Attacked by the Brigand Band, the civilians ran in despair until the courageous Band Of Defenders came to the rescue."
+            "example" : "Attacked by the Brigand Band, the civilians ran in despair until the courageous Band Of Defenders came to the rescue.\n"
           },
           "span" : {
             "$ref" : "#/components/schemas/PositionalRange"
