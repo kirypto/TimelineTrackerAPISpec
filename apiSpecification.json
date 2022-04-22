@@ -1112,17 +1112,17 @@
           "span" : {
             "$ref" : "#/components/schemas/PositionalRange"
           },
-          "affected_locations" : {
-            "$ref" : "#/components/schemas/LocationIds"
-          },
-          "affected_travelers" : {
-            "$ref" : "#/components/schemas/TravelerIds"
-          },
           "tags" : {
             "$ref" : "#/components/schemas/Tags"
           },
           "attributes" : {
             "$ref" : "#/components/schemas/Attributes"
+          },
+          "affected_locations" : {
+            "$ref" : "#/components/schemas/LocationIds"
+          },
+          "affected_travelers" : {
+            "$ref" : "#/components/schemas/TravelerIds"
           }
         },
         "required" : [ "name", "span" ]
