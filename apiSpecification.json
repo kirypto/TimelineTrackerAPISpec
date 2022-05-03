@@ -675,7 +675,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/ExistingTraveler"
+                  "$ref" : "#/components/schemas/ExtendedJourneyTraveler"
                 }
               }
             }
@@ -1093,6 +1093,31 @@
             "name" : {
               "type" : "string",
               "example" : "Modified Name"
+            }
+          }
+        } ]
+      },
+      "ExtendedJourneyTraveler" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/ExistingTraveler"
+        }, {
+          "type" : "object",
+          "properties" : {
+            "journey" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/components/schemas/PositionalMove"
+              },
+              "example" : [ {
+                "position" : {
+                  "latitude" : -10.9378,
+                  "longitude" : -8.61222,
+                  "altitude" : 816.72,
+                  "continuum" : 737194.31,
+                  "reality" : 1
+                },
+                "movement_type" : "immediate"
+              } ]
             }
           }
         } ]
