@@ -546,7 +546,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "{\"latitude\":0,\"longitude\":0,\"altitude\":0,\"continuum\":0,\"reality\":0}"
+          "example" : "{\"latitude\":-10.9378,\"longitude\":-8.61222,\"altitude\":816.72,\"continuum\":737194.31,\"reality\":1}"
         }, {
           "in" : "query",
           "name" : "journeyIntersects",
@@ -554,7 +554,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "{\"latitude\":0,\"longitude\":0,\"altitude\":{\"low\":0,\"high\":Infinity},\"continuum\":{\"low\":-Infinity,\"high\":Infinity},\"reality\":0}"
+          "example" : "{\"latitude\":-10.9378,\"longitude\":-8.61222,\"altitude\":{\"low\":0,\"high\":Infinity},\"continuum\":{\"low\":-Infinity,\"high\":Infinity},\"reality\":1}"
         } ],
         "responses" : {
           "200" : {
