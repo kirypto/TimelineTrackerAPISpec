@@ -498,7 +498,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "James T. Kirk"
+          "example" : "Gaius Julius Caesar"
         }, {
           "in" : "query",
           "name" : "nameHas",
@@ -506,7 +506,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "Kirk"
+          "example" : "Julius Caesar"
         }, {
           "in" : "query",
           "name" : "taggedAll",
