@@ -546,7 +546,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "{\"latitude\":-10.9378,\"longitude\":-8.61222,\"altitude\":816.72,\"continuum\":737194.31,\"reality\":1}"
+          "example" : "{\"latitude\":-5.05,\"longitude\":-2.6,\"altitude\":3.5,\"continuum\":11.9,\"reality\":1}"
         }, {
           "in" : "query",
           "name" : "journeyIntersects",
@@ -554,7 +554,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "{\"latitude\":-10.9378,\"longitude\":-8.61222,\"altitude\":{\"low\":0,\"high\":Infinity},\"continuum\":{\"low\":-Infinity,\"high\":Infinity},\"reality\":1}"
+          "example" : "{\"latitude\":-5.05,\"longitude\":-2.6,\"altitude\":{\"low\":0,\"high\":Infinity},\"continuum\":{\"low\":-Infinity,\"high\":Infinity},\"reality\":1}"
         } ],
         "responses" : {
           "200" : {
@@ -1110,10 +1110,10 @@
               },
               "example" : [ {
                 "position" : {
-                  "latitude" : -10.9378,
-                  "longitude" : -8.61222,
-                  "altitude" : 816.72,
-                  "continuum" : 737194.31,
+                  "latitude" : -5.05,
+                  "longitude" : -2.6,
+                  "altitude" : 3.5,
+                  "continuum" : 11.9,
                   "reality" : 1
                 },
                 "movement_type" : "immediate"
@@ -1246,10 +1246,10 @@
         },
         "example" : [ {
           "position" : {
-            "latitude" : -10.9378,
-            "longitude" : -8.61222,
-            "altitude" : 816.72,
-            "continuum" : 737194.31,
+            "latitude" : -5.05,
+            "longitude" : -2.6,
+            "altitude" : 3.5,
+            "continuum" : 11.9,
             "reality" : 1
           },
           "movement_type" : "immediate"
@@ -1306,22 +1306,22 @@
           "latitude" : {
             "type" : "number",
             "format" : "float",
-            "example" : -10.9378
+            "example" : -5.05
           },
           "longitude" : {
             "type" : "number",
             "format" : "float",
-            "example" : -8.61222
+            "example" : -2.6
           },
           "altitude" : {
             "type" : "number",
             "format" : "float",
-            "example" : 816.72
+            "example" : 3.5
           },
           "continuum" : {
             "type" : "number",
             "format" : "float",
-            "example" : 737194.31
+            "example" : 11.9
           },
           "reality" : {
             "type" : "integer",
