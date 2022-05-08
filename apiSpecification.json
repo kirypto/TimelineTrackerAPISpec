@@ -546,7 +546,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "{\"latitude\":-5.05,\"longitude\":-2.6,\"altitude\":3.5,\"continuum\":11.9,\"reality\":1}"
+          "example" : "{\"latitude\":-5.05,\"longitude\":-2.6,\"altitude\":3.5,\"continuum\":11.9,\"reality\":0}"
         }, {
           "in" : "query",
           "name" : "journeyIntersects",
@@ -554,7 +554,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "{\"latitude\":-5.05,\"longitude\":-2.6,\"altitude\":{\"low\":0,\"high\":Infinity},\"continuum\":{\"low\":-Infinity,\"high\":Infinity},\"reality\":1}"
+          "example" : "{\"latitude\":-5.05,\"longitude\":-2.6,\"altitude\":{\"low\":0,\"high\":Infinity},\"continuum\":{\"low\":-Infinity,\"high\":Infinity},\"reality\":0}"
         } ],
         "responses" : {
           "200" : {
@@ -1113,8 +1113,8 @@
                   "latitude" : -5.05,
                   "longitude" : -2.6,
                   "altitude" : 3.5,
-                  "continuum" : 11.9,
-                  "reality" : 1
+                  "continuum" : 12.5,
+                  "reality" : 0
                 },
                 "movement_type" : "immediate"
               } ]
@@ -1250,7 +1250,7 @@
             "longitude" : -2.6,
             "altitude" : 3.5,
             "continuum" : 11.9,
-            "reality" : 1
+            "reality" : 0
           },
           "movement_type" : "immediate"
         } ]
@@ -1326,7 +1326,7 @@
           "reality" : {
             "type" : "integer",
             "format" : "int",
-            "example" : 1
+            "example" : 0
           }
         },
         "required" : [ "latitude", "longitude", "altitude", "continuum", "reality" ]
