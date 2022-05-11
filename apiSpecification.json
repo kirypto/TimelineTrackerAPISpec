@@ -1230,7 +1230,17 @@
         "type" : "array",
         "items" : {
           "$ref" : "#/components/schemas/PositionalMoveOrEventId"
-        }
+        },
+        "example" : [ {
+          "position" : {
+            "latitude" : -5.05,
+            "longitude" : -2.6,
+            "altitude" : 3.5,
+            "continuum" : 11.9,
+            "reality" : 0
+          },
+          "movement_type" : "immediate"
+        }, "event-abad1dea-0000-4000-8000-000000000000" ]
       },
       "LocationTimeline" : {
         "type" : "array",
