@@ -2,7 +2,7 @@
   "openapi" : "3.0.0",
   "servers" : [ {
     "description" : "Local Server",
-    "url" : "https://172.0.0.1:5000"
+    "url" : "http://172.0.0.1:5000"
   } ],
   "info" : {
     "version" : "0.4.0",
