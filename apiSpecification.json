@@ -1358,10 +1358,13 @@
       },
       "Attributes" : {
         "type" : "object",
-        "description" : "Generic attribute key-value map consisting of string data.\n- Attributes keys must be contain only alphanumeric, underscore, and dash characters.\n- Attributes values can be any string.\n",
+        "description" : "Generic attribute key-value map consisting of string keys and json data values.\n- Attributes keys must be contain only alphanumeric, underscore, and dash characters.\n- Attributes values can be any json.\n",
         "example" : {
           "key1" : "Value A",
-          "key2" : "Value B"
+          "key2" : {
+            "key3" : "Value B",
+            "key4" : [ 4.2, false ]
+          }
         }
       },
       "Tag" : {
