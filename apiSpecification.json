@@ -978,11 +978,11 @@
             "id" : {
               "$ref" : "#/components/schemas/WorldId"
             }
-          }
+          },
+          "required" : [ "id" ]
         }, {
           "$ref" : "#/components/schemas/NewWorld"
-        } ],
-        "required" : [ "id" ]
+        } ]
       },
       "ModifiedWorld" : {
         "allOf" : [ {
@@ -1028,11 +1028,11 @@
             "id" : {
               "$ref" : "#/components/schemas/LocationId"
             }
-          }
+          },
+          "required" : [ "id" ]
         }, {
           "$ref" : "#/components/schemas/NewLocation"
-        } ],
-        "required" : [ "id" ]
+        } ]
       },
       "ModifiedLocation" : {
         "allOf" : [ {
@@ -1078,11 +1078,11 @@
             "id" : {
               "$ref" : "#/components/schemas/TravelerId"
             }
-          }
+          },
+          "required" : [ "id" ]
         }, {
           "$ref" : "#/components/schemas/NewTraveler"
-        } ],
-        "required" : [ "id", "journey" ]
+        } ]
       },
       "ModifiedTraveler" : {
         "allOf" : [ {
@@ -1159,11 +1159,11 @@
             "id" : {
               "$ref" : "#/components/schemas/EventId"
             }
-          }
+          },
+          "required" : [ "id" ]
         }, {
           "$ref" : "#/components/schemas/NewEvent"
-        } ],
-        "required" : [ "id" ]
+        } ]
       },
       "ModifiedEvent" : {
         "allOf" : [ {
