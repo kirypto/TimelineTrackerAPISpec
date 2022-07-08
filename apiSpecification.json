@@ -969,7 +969,7 @@
             "$ref" : "#/components/schemas/Attributes"
           }
         },
-        "required" : [ "name", "span" ]
+        "required" : [ "name" ]
       },
       "ExistingWorld" : {
         "allOf" : [ {
