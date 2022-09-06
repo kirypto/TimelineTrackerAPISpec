@@ -192,7 +192,7 @@
         "tags" : [ "Locations" ],
         "requestBody" : {
           "required" : true,
-          "description" : "*Notes*\n- *When POSTing a Location, providing an id is not required as it will\nbe generated. If one is provided it will be ignored.*\n- *`-Infinity` and `Infinity` can be provided in place of numbers and will be translated to negative and positive infinity respectively.*\n",
+          "description" : "*Notes*\n- *When POSTing a Location, providing an id is not required as it will\nbe generated. If one is provided it will be ignored.*\n",
           "content" : {
             "application/json" : {
               "schema" : {
@@ -290,7 +290,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "{\"latitude\":0,\"longitude\":0,\"altitude\":{\"low\":0,\"high\":Infinity},\"continuum\":{\"low\":-Infinity,\"high\":Infinity},\"reality\":[0]}"
+          "example" : "{\"latitude\":0,\"longitude\":0,\"altitude\":{\"low\":0,\"high\":2147483647},\"continuum\":{\"low\":-2147483647,\"high\":2147483647},\"reality\":[0]}"
         } ],
         "responses" : {
           "200" : {
@@ -554,7 +554,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "{\"latitude\":-5.05,\"longitude\":-2.6,\"altitude\":{\"low\":0,\"high\":Infinity},\"continuum\":{\"low\":-Infinity,\"high\":Infinity},\"reality\":0}"
+          "example" : "{\"latitude\":-5.05,\"longitude\":-2.6,\"altitude\":{\"low\":0,\"high\":2147483647},\"continuum\":{\"low\":-2147483647,\"high\":2147483647},\"reality\":0}"
         } ],
         "responses" : {
           "200" : {
@@ -862,7 +862,7 @@
           "schema" : {
             "type" : "string"
           },
-          "example" : "{\"latitude\":0,\"longitude\":0,\"altitude\":{\"low\":0,\"high\":Infinity},\"continuum\":{\"low\":-Infinity,\"high\":Infinity},\"reality\":[0]}"
+          "example" : "{\"latitude\":0,\"longitude\":0,\"altitude\":{\"low\":0,\"high\":2147483647},\"continuum\":{\"low\":-2147483647,\"high\":2147483647},\"reality\":[0]}"
         } ],
         "responses" : {
           "200" : {
