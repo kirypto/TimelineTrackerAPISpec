@@ -5,11 +5,11 @@
     "url" : "http://127.0.0.1:5000"
   } ],
   "info" : {
-    "version" : "0.3.0",
+    "version" : "0.5.0",
     "title" : "Timeline Tracker API",
     "license" : {
       "url" : "https://github.com/kirypto/TimelineTracker/blob/master/LICENSE.txt",
-      "name" : "GNU General Public License v3.0"
+      "name" : "GNU Affero General Public License v3.0 (AGPLv3)"
     },
     "contact" : {
       "url" : "https://github.com/kirypto/TimelineTracker/issues",
