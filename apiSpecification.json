@@ -8,7 +8,7 @@
     "version" : "0.5.0",
     "title" : "Timeline Tracker API",
     "license" : {
-      "url" : "https://github.com/kirypto/TimelineTracker/blob/master/LICENSE.txt",
+      "url" : "https://github.com/kirypto/TimelineTracker/blob/main/LICENSE.txt",
       "name" : "GNU Affero General Public License v3.0 (AGPLv3)"
     },
     "contact" : {
